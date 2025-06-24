@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1750765061" />
+    <testcase name="test_counter_2bit" classname="test_counter_2bit" file="/home/menessol/projects/cocotb-fpga-tests/02_counter_2bit/tests/test_counter_2bit.py" lineno="5" time="0.0018017292022705078" sim_time_ns="130.001" ratio_time="72153.46226068545" />
+  </testsuite>
+</testsuites>
