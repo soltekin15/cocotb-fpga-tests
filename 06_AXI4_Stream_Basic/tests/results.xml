@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1750947098" />
+    <testcase name="test_basic_packet" classname="test_axis_counter" file="/home/menessol/projects/cocotb-fpga-tests/06_AXI4_Stream_Basic/tests/test_axis_counter.py" lineno="6" time="0.004343986511230469" sim_time_ns="180.001" ratio_time="41436.82295850714" />
+    <testcase name="test_backpressure" classname="test_axis_counter" file="/home/menessol/projects/cocotb-fpga-tests/06_AXI4_Stream_Basic/tests/test_axis_counter.py" lineno="42" time="0.003020763397216797" sim_time_ns="220.001" ratio_time="72829.60333891082" />
+    <testcase name="test_multiple_packets" classname="test_axis_counter" file="/home/menessol/projects/cocotb-fpga-tests/06_AXI4_Stream_Basic/tests/test_axis_counter.py" lineno="105" time="0.0048236846923828125" sim_time_ns="320.00100000000003" ratio_time="66339.53510794781" />
+  </testsuite>
+</testsuites>

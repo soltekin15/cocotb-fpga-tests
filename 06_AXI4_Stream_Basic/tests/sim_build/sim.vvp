@@ -1,0 +1,170 @@
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi";
+S_0x58a65a1fccf0 .scope package, "$unit" "$unit" 2 1;
+ .timescale -9 -12;
+S_0x58a65a1fce80 .scope module, "axis_counter" "axis_counter" 3 1;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "rst_n";
+    .port_info 2 /INPUT 1 "start";
+    .port_info 3 /OUTPUT 1 "done";
+    .port_info 4 /OUTPUT 1 "m_axis_tvalid";
+    .port_info 5 /INPUT 1 "m_axis_tready";
+    .port_info 6 /OUTPUT 32 "m_axis_tdata";
+    .port_info 7 /OUTPUT 1 "m_axis_tlast";
+P_0x58a65a20e5c0 .param/l "DATA_WIDTH" 0 3 2, +C4<00000000000000000000000000100000>;
+P_0x58a65a20e600 .param/l "PACKET_SIZE" 0 3 3, +C4<00000000000000000000000000000100>;
+enum0x58a65a20dbb0 .enum4 (2)
+   "IDLE" 2'b00,
+   "SENDING" 2'b01,
+   "DONE_STATE" 2'b10
+ ;
+L_0x58a65a263e40 .functor BUFZ 32, v0x58a65a263390_0, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>;
+L_0x58a65a2743b0 .functor AND 1, L_0x58a65a2740d0, L_0x58a65a274240, C4<1>, C4<1>;
+L_0x7dba0b6d0018 .functor BUFT 1, C4<01>, C4<0>, C4<0>, C4<0>;
+v0x58a65a2380b0_0 .net/2u *"_ivl_0", 1 0, L_0x7dba0b6d0018;  1 drivers
+L_0x7dba0b6d00a8 .functor BUFT 1, C4<00000000000000000000000000000011>, C4<0>, C4<0>, C4<0>;
+v0x58a65a262cc0_0 .net/2u *"_ivl_10", 31 0, L_0x7dba0b6d00a8;  1 drivers
+v0x58a65a262da0_0 .net *"_ivl_12", 0 0, L_0x58a65a2740d0;  1 drivers
+L_0x7dba0b6d00f0 .functor BUFT 1, C4<01>, C4<0>, C4<0>, C4<0>;
+v0x58a65a262e40_0 .net/2u *"_ivl_14", 1 0, L_0x7dba0b6d00f0;  1 drivers
+v0x58a65a262f20_0 .net *"_ivl_16", 0 0, L_0x58a65a274240;  1 drivers
+v0x58a65a263030_0 .net *"_ivl_6", 31 0, L_0x58a65a263ee0;  1 drivers
+L_0x7dba0b6d0060 .functor BUFT 1, C4<00000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0x58a65a263110_0 .net *"_ivl_9", 28 0, L_0x7dba0b6d0060;  1 drivers
+o0x7dba0ba60168 .functor BUFZ 1, C4<z>; HiZ drive
+v0x58a65a2631f0_0 .net "clk", 0 0, o0x7dba0ba60168;  0 drivers
+v0x58a65a2632b0_0 .var "current_state", 1 0;
+v0x58a65a263390_0 .var "current_tdata", 31 0;
+v0x58a65a263470_0 .var "data_counter", 31 0;
+v0x58a65a263550_0 .var "done", 0 0;
+v0x58a65a263610_0 .net "m_axis_tdata", 31 0, L_0x58a65a263e40;  1 drivers
+v0x58a65a2636f0_0 .net "m_axis_tlast", 0 0, L_0x58a65a2743b0;  1 drivers
+o0x7dba0ba602b8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x58a65a2637b0_0 .net "m_axis_tready", 0 0, o0x7dba0ba602b8;  0 drivers
+v0x58a65a263870_0 .net "m_axis_tvalid", 0 0, L_0x58a65a263da0;  1 drivers
+o0x7dba0ba60318 .functor BUFZ 1, C4<z>; HiZ drive
+v0x58a65a263930_0 .net "rst_n", 0 0, o0x7dba0ba60318;  0 drivers
+o0x7dba0ba60348 .functor BUFZ 1, C4<z>; HiZ drive
+v0x58a65a263b00_0 .net "start", 0 0, o0x7dba0ba60348;  0 drivers
+v0x58a65a263bc0_0 .var "word_count", 2 0;
+E_0x58a65a1fd7f0/0 .event negedge, v0x58a65a263930_0;
+E_0x58a65a1fd7f0/1 .event posedge, v0x58a65a2631f0_0;
+E_0x58a65a1fd7f0 .event/or E_0x58a65a1fd7f0/0, E_0x58a65a1fd7f0/1;
+L_0x58a65a263da0 .cmp/eq 2, v0x58a65a2632b0_0, L_0x7dba0b6d0018;
+L_0x58a65a263ee0 .concat [ 3 29 0 0], v0x58a65a263bc0_0, L_0x7dba0b6d0060;
+L_0x58a65a2740d0 .cmp/eq 32, L_0x58a65a263ee0, L_0x7dba0b6d00a8;
+L_0x58a65a274240 .cmp/eq 2, v0x58a65a2632b0_0, L_0x7dba0b6d00f0;
+    .scope S_0x58a65a1fce80;
+T_0 ;
+    %wait E_0x58a65a1fd7f0;
+    %load/vec4 v0x58a65a263930_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 2;
+    %assign/vec4 v0x58a65a2632b0_0, 0;
+    %pushi/vec4 0, 0, 3;
+    %assign/vec4 v0x58a65a263bc0_0, 0;
+    %pushi/vec4 0, 0, 32;
+    %assign/vec4 v0x58a65a263470_0, 0;
+    %pushi/vec4 0, 0, 32;
+    %assign/vec4 v0x58a65a263390_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x58a65a263550_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0x58a65a2632b0_0;
+    %dup/vec4;
+    %pushi/vec4 0, 0, 2;
+    %cmp/u;
+    %jmp/1 T_0.2, 6;
+    %dup/vec4;
+    %pushi/vec4 1, 0, 2;
+    %cmp/u;
+    %jmp/1 T_0.3, 6;
+    %dup/vec4;
+    %pushi/vec4 2, 0, 2;
+    %cmp/u;
+    %jmp/1 T_0.4, 6;
+    %jmp T_0.5;
+T_0.2 ;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x58a65a263550_0, 0;
+    %load/vec4 v0x58a65a263b00_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.6, 8;
+    %pushi/vec4 1, 0, 2;
+    %assign/vec4 v0x58a65a2632b0_0, 0;
+    %pushi/vec4 0, 0, 3;
+    %assign/vec4 v0x58a65a263bc0_0, 0;
+    %load/vec4 v0x58a65a263470_0;
+    %addi 1, 0, 32;
+    %assign/vec4 v0x58a65a263470_0, 0;
+    %load/vec4 v0x58a65a263470_0;
+    %addi 1, 0, 32;
+    %assign/vec4 v0x58a65a263390_0, 0;
+T_0.6 ;
+    %jmp T_0.5;
+T_0.3 ;
+    %load/vec4 v0x58a65a263870_0;
+    %load/vec4 v0x58a65a2637b0_0;
+    %and;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.8, 8;
+    %load/vec4 v0x58a65a263bc0_0;
+    %addi 1, 0, 3;
+    %assign/vec4 v0x58a65a263bc0_0, 0;
+    %load/vec4 v0x58a65a263bc0_0;
+    %pad/u 32;
+    %cmpi/e 3, 0, 32;
+    %jmp/0xz  T_0.10, 4;
+    %pushi/vec4 2, 0, 2;
+    %assign/vec4 v0x58a65a2632b0_0, 0;
+    %jmp T_0.11;
+T_0.10 ;
+    %load/vec4 v0x58a65a263470_0;
+    %addi 1, 0, 32;
+    %assign/vec4 v0x58a65a263470_0, 0;
+    %load/vec4 v0x58a65a263470_0;
+    %addi 1, 0, 32;
+    %assign/vec4 v0x58a65a263390_0, 0;
+T_0.11 ;
+T_0.8 ;
+    %jmp T_0.5;
+T_0.4 ;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x58a65a263550_0, 0;
+    %load/vec4 v0x58a65a263b00_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.12, 8;
+    %pushi/vec4 0, 0, 2;
+    %assign/vec4 v0x58a65a2632b0_0, 0;
+T_0.12 ;
+    %jmp T_0.5;
+T_0.5 ;
+    %pop/vec4 1;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0x58a65a1fce80;
+T_1 ;
+    %vpi_call/w 3 87 "$dumpfile", "axis_waves.vcd" {0 0 0};
+    %vpi_call/w 3 88 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x58a65a1fce80 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "/home/menessol/projects/cocotb-fpga-tests/06_AXI4_Stream_Basic/tests/../rtl/axis_counter.sv";

@@ -40,6 +40,7 @@ wire [31:0] debug_reg2 = registers[2];
 wire [31:0] debug_reg3 = registers[3];
 wire [31:0] debug_reg4 = registers[4];
 wire [31:0] debug_reg5 = registers[5];
+
 // Write FSM
 typedef enum logic [1:0] {
     W_IDLE, W_WAIT_DATA, W_RESP
@@ -91,7 +92,7 @@ always_ff @(posedge aclk or negedge aresetn) begin
                     wready <= 1'b0;
                     bvalid <= 1'b1;
                 end
-            end
+            end 
             
             W_RESP: begin
                 if (bvalid && bready) begin
