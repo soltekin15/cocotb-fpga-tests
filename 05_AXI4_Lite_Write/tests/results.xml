@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1750934893" />
+    <testcase name="test_basic_write" classname="test_axi_write" file="/home/menessol/projects/cocotb-fpga-tests/05_AXI4_Lite_Write/tests/test_axi_write.py" lineno="6" time="0.0021843910217285156" sim_time_ns="150.001" ratio_time="68669.48202401222" />
+    <testcase name="test_multiple_writes" classname="test_axi_write" file="/home/menessol/projects/cocotb-fpga-tests/05_AXI4_Lite_Write/tests/test_axi_write.py" lineno="35" time="0.0034842491149902344" sim_time_ns="340.001" ratio_time="97582.28782701519" />
+    <testcase name="test_byte_enable" classname="test_axi_write" file="/home/menessol/projects/cocotb-fpga-tests/05_AXI4_Lite_Write/tests/test_axi_write.py" lineno="67" time="0.002552032470703125" sim_time_ns="250.00100000000003" ratio_time="97961.5278684604" />
+  </testsuite>
+</testsuites>
