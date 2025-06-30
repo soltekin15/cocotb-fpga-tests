@@ -1,0 +1,9 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1751264534" />
+    <testcase name="test_basic_fifo_flow" classname="test_axis_fifo" file="/home/menessol/projects/cocotb-fpga-tests/07_AXI4_Stream_FIFO/tests/test_axis_fifo.py" lineno="6" time="0.0025365352630615234" sim_time_ns="170.001" ratio_time="67020.94880195508" />
+    <testcase name="test_fifo_backpressure_consumer" classname="test_axis_fifo" file="/home/menessol/projects/cocotb-fpga-tests/07_AXI4_Stream_FIFO/tests/test_axis_fifo.py" lineno="103" time="0.00327301025390625" sim_time_ns="210.001" ratio_time="64161.42441025641" />
+    <testcase name="test_fifo_status_flags" classname="test_axis_fifo" file="/home/menessol/projects/cocotb-fpga-tests/07_AXI4_Stream_FIFO/tests/test_axis_fifo.py" lineno="160" time="0.0044209957122802734" sim_time_ns="190.00100000000003" ratio_time="42976.96997810495" />
+    <testcase name="test_multiple_packets_through_fifo" classname="test_axis_fifo" file="/home/menessol/projects/cocotb-fpga-tests/07_AXI4_Stream_FIFO/tests/test_axis_fifo.py" lineno="215" time="0.004297018051147461" sim_time_ns="410.001" ratio_time="95415.2379905676" />
+  </testsuite>
+</testsuites>
